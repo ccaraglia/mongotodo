@@ -39,7 +39,7 @@ app.set('view engine', 'html');
 connectToDB("tiy-starter-kit")
 
 // =========
-// APPLICATION MIDDLEWARE 
+// APPLICATION MIDDLEWARE
 // =========
 app.use( express.static( __dirname + '/dist/assets') );
 app.use( bodyParser.json() );
@@ -51,7 +51,7 @@ app.use( passport.session() );
 appAuthentication(User)
 
 
-// 
+//
 // =========
 // ROUTERS
 // =========

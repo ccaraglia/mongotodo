@@ -9,12 +9,20 @@ const usersSchema = new Schema({
 })
 
 const postsSchema = new Schema({
-  title: String, 
-  body: String,
-  user: Object
+  title: String,
+
+
+//  user: Object
 })
+
+const tasksSchema = new Schema({
+  name: String,
+  smemo: String
+})
+
 
 module.exports = {
   User: createModel('User', usersSchema),
-  Post: createModel('Post', postsSchema)
+  Post: createModel('Post', postsSchema),
+  Task: createModel('Task', tasksSchema)
 }
