@@ -18,8 +18,12 @@ const TasksView = React.createClass({
 
         this.props.tasksColl.fetch().then(self._resetList)
 
+        this.props.tasksColl.on('update sync', self._resetList)
+
         Backbone.Events.on( 'resetList update sync', function(payload){
             self._resetList(payload)
+
+
         })
 
     },
@@ -109,12 +113,14 @@ const Task = React.createClass({
 
       {/*  this.props.taskModel.destroy()  */}
 
+var url = this.props.taskModel.url + '/' + this.props.taskModel.get('_id')
 
+        this.props.taskModel.destroy(
+        { url: url
 
-        this.props.taskModel.destroy(null, {
-            url: '/api/tasks/' + this.props.taskModel.get('_id')
-        })
-        console.log(this.props.taskModel.get('_id'))
+        }).then(function(response){console.log(response)})
+
+        console.log(url)
     },
 
     render: function() {

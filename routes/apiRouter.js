@@ -61,7 +61,8 @@ apiRouter.post('/tasks/:_id', function(req,res) {
 })
 
 //delete one
-apiRouter.delete('/tasks/', (req,res) => {
+apiRouter.delete('/tasks/:_id', (req,res) => {
+    console.log('deleting a task')
   Task.findByIdAndRemove(req.params,(err) => {
     res.status(204).json({msg: "record successfully deleted",
       _id: req.params._id})
